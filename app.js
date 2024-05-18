@@ -1,5 +1,4 @@
 const express = require('express');
-const fileUpload = require('express-fileupload');
 const app = express();
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
@@ -8,9 +7,8 @@ const postRoutes = require('./routes/postRoutes');
 const commentRoutes = require('./routes/commentRoutes');
 const likeRoutes = require('./routes/likeRoutes');
 require('dotenv').config();
-
+var cors = require('cors');
 app.use(bodyParser.json());
-app.use(fileUpload());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
